@@ -3,11 +3,13 @@ struct Node {
 	char data;
 	Node* left;
 	Node* right;
+
 	Node(char input_data = NULL, Node* left_node = nullptr, Node* right_node = nullptr) {
 		data = input_data;
 		left = left_node;
 		right = right_node;
-	};
+	}
+
 	void insert(Node& node) {
 		if (data == NULL) {
 			data = node.data;
@@ -24,7 +26,25 @@ struct Node {
 				right = new Node;
 			right->insert(node);
 		}
-	};
+	}
+
+	void insert(char insert_data) {
+		if (data == NULL) {
+			data = insert_data;
+			left = nullptr;
+			right = nullptr;
+		}
+		else if (data > insert_data) {
+			if (left == nullptr)
+				left = new Node;
+			left->insert(insert_data);
+		}
+		else {
+			if (right == nullptr)
+				right = new Node;
+			right->insert(insert_data);
+		}
+	}
 
 	Node seek(char s_data) {
 		if (this == NULL)
