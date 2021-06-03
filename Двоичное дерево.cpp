@@ -4,18 +4,22 @@ using namespace std;
 
 int main()
 {
-    Node root('c');
+    Node root('e');
     Node input_node('b');
 
     root.insert(input_node);
-    input_node.data = 'd';
-    root.insert(input_node);
     input_node.data = 'a';
     root.insert(input_node);
-    input_node.data = 'e';
+    input_node.data = 'c';
     root.insert(input_node);
-
-    Node node = root.seek('a');
+    input_node.data = 'd';
+    root.insert(input_node);
+	input_node.data = 'f';
+	root.insert(input_node);
+	input_node.data = 'g';
+	root.insert(input_node);
+	input_node.data = 'h';
+	root.insert(input_node);
 
     root.remove('b');
 }
