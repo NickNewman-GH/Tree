@@ -57,15 +57,6 @@ struct Node {
 			right->seek(s_data);
 	}
 
-	Node minimum() {
-		if (left != nullptr) {
-			left->minimum();
-		}
-		else {
-			return *this;
-		}
-	}
-
 	Node remove(char r_data) {
 		if (data == NULL)
 			return NULL;
@@ -83,7 +74,7 @@ struct Node {
 			if (left != nullptr) {
 				data = left->data;
 				right = left->right;
-				left = left->left;		
+				left = left->left;
 			}
 			else {
 				data = right->data;
@@ -91,5 +82,15 @@ struct Node {
 				right = right->right;
 			}
 		return *this;
+	}
+
+private:
+	Node minimum() {
+		if (left != nullptr) {
+			left->minimum();
+		}
+		else {
+			return *this;
+		}
 	}
 };
